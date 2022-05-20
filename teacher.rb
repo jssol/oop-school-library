@@ -1,13 +1,12 @@
-require_relative './person.rb'
+require_relative './person'
 
 class Teacher < Person
   def initialize(specialization)
     @specialization = specialization
-    super(name: 'Unknown', age)
+    super()
   end
 
-  def can_use_services? 
-    response = true
-    response
+  def can_use_services?
+    true
   end
 end
