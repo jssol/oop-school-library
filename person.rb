@@ -11,7 +11,7 @@ class Person
 
   def can_use_services?
     response = false
-    response = true if of_age? || @parent_permission == true
+    response = true if o_age? || @parent_permission == true
     response
   end
 
@@ -23,3 +23,5 @@ class Person
     response
   end
 end
+
+person = Person.new('Anderson', 85, parent_permission: true)

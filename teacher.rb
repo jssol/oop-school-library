@@ -10,3 +10,5 @@ class Teacher < Person
     true
   end
 end
+
+teacher = Teacher.new('Math')

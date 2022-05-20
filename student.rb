@@ -10,3 +10,6 @@ class Student < Person
     "¯\(ツ)/¯"
   end
 end
+
+
+student = Student.new('5')
