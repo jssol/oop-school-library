@@ -11,7 +11,7 @@ class Person
 
   def can_use_services?
     response = false
-    response = true if is_of_age? || @parent_permission == true
+    response = true if of_age? || @parent_permission == true
     response
   end
 
