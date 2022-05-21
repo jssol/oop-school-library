@@ -13,7 +13,8 @@ class App
   end
 
   def add_book(title, author)
-    Book.new(title, author)
+    book = Book.new(title, author)
+    @book_list.push(book)
   end
 
   def add_student(classroom, age, name, parent_permission)
