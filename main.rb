@@ -21,3 +21,13 @@ def create_student(app)
   classroom = gets.chomp
   app.add_student(classroom, age.to_i, name, has_permission)
 end
+
+def create_teacher(app)
+  print "\nAge: "
+  age = gets.chomp
+  print "\nName: "
+  name = gets.chomp
+  print "\nSpecialization: "
+  specialization = gets.chomp
+  app.add_teacher(specialization, age.to_i, name)
+end
