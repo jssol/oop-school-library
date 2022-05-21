@@ -25,4 +25,11 @@ class App
     teacher = Teacher.new(specialization, age, name)
     @people_list.push({ value: teacher, type: 'Teacher' })
   end
+
+  def add_rental(date, book_num, person_num)
+    book = @book_list[book_num - 1]
+    person = @people_list[person_num - 1][:value]
+    rental = Rental.new(date, book, person)
+    @rental_list.push(rental)
+  end
 end
