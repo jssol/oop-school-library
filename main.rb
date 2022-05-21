@@ -1,4 +1,4 @@
-require './app'
+require_relative './app'
 
 def display_app
   puts "\nPlease choose an option by enter a number:"
@@ -48,3 +48,19 @@ def create_book(app)
   app.add_book(title, author)
   puts 'Book created successfully'
 end
+
+def create_rental(app)
+  app.choose_book_to_create_rental
+  book_num = gets.chomp
+  app.choose_person_to_create_rental
+  person_num = gets.chomp
+  print "\nDate: "
+  date = gets.chomp
+  app.add_rental(date, book_num.to_i, person_num.to_i)
+  puts 'Rental created successfully'
+end
+
+def handle_rental(app)
+  app.people_list.length.positive? && app.book_list.length.positive? && create_rental(app)
+end
+
