@@ -36,10 +36,18 @@ class App
   def display_books
     @book_list.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
   end
-  
+
   def display_people
     @people_list.each do |person|
       puts "[#{person[:type]}] Name: #{person[:value].name}, ID: #{person[:value].id}, Age: #{person[:value].age}"
+    end
+  end
+
+  def display_rental_for_id(id)
+    @rental_list.each do |rental|
+      if rental.person.id == id
+        puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
+      end
     end
   end
 
