@@ -13,7 +13,7 @@ class App
   end
 
   def add_book(title, author)
-    book = Book.new(title, author)
+    Book.new(title, author)
   end
 
   def add_student(classroom, age, name, parent_permission)
@@ -31,5 +31,9 @@ class App
     person = @people_list[person_num - 1][:value]
     rental = Rental.new(date, book, person)
     @rental_list.push(rental)
+  end
+
+  def display_books
+    @book_list.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
   end
 end
