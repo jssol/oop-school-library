@@ -83,3 +83,14 @@ def exit_program
   puts 'Thank you for using this app!'
   exit
 end
+
+def take_action(app)
+  decision = gets.chomp
+  puts 'Please choose of the list' unless '1234567'.include?(decision)
+  decision == '7' && exit_program
+  methods = [
+    method(:display_books), method(:display_people), method(:create_people),
+    method(:create_book), method(:handle_rental), method(:list_rental_for_person)
+  ]
+  '123456'.include?(decision) && methods[decision.to_i - 1].call(app)
+end
