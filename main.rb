@@ -7,6 +7,14 @@ def display_app
         '7 - Exit']
 end
 
+def display_books(app)
+  app.display_books
+end
+
+def display_people(app)
+  app.display_people
+end
+
 def create_student(app)
   print "\nAge: "
   age = gets.chomp
