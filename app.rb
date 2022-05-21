@@ -11,4 +11,8 @@ class App
     @people_list = []
     @rental_list = []
   end
+
+  def add_book(title, author)
+    book = Book.new(title, author)
+  end
 end
