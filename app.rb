@@ -48,4 +48,12 @@ class App
       puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}" if rental.person.id == id
     end
   end
+
+  def choose_person_to_create_rental
+    puts 'Select a person from the following list by number (not id)'
+    @people_list.each_with_index do |person, i|
+      puts "#{i + 1}) [#{person[:type]}] Name: #{person[:value].name},"
+      + " ID: #{person[:value].id}, Age: #{person[:value].age}"
+    end
+  end
 end
