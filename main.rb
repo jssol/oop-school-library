@@ -78,3 +78,8 @@ def list_rental_for_person(app)
   puts 'Rentals:'
   app.display_rental_for_id(id.to_i)
 end
+
+def exit_program
+  puts 'Thank you for using this app!'
+  exit
+end
