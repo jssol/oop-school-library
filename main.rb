@@ -94,3 +94,14 @@ def take_action(app)
   ]
   '123456'.include?(decision) && methods[decision.to_i - 1].call(app)
 end
+
+def main
+  puts "\nWelcome to School Library App!\n"
+  app = App.new
+  loop do
+    display_app
+    take_action(app)
+  end
+end
+
+main
