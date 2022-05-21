@@ -15,4 +15,9 @@ class App
   def add_book(title, author)
     book = Book.new(title, author)
   end
+
+  def add_student(classroom, age, name, parent_permission)
+    student = Student.new(classroom, age, name, parent_permission)
+    @people_list.push({ value: student, type: 'Student' })
+  end
 end
