@@ -64,3 +64,9 @@ def handle_rental(app)
   app.people_list.length.positive? && app.book_list.length.positive? && create_rental(app)
 end
 
+def list_rental_for_person(app)
+  print "\nID of person: "
+  id = gets.chomp
+  puts 'Rentals:'
+  app.display_rental_for_id(id.to_i)
+end
