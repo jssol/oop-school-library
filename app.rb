@@ -56,4 +56,11 @@ class App
       + " ID: #{person[:value].id}, Age: #{person[:value].age}"
     end
   end
+
+  def choose_book_to_create_rental
+    puts 'Select a book from the following list by number'
+    @book_list.each_with_index do |book, i|
+      puts "#{i + 1}) Title: \"#{book.title}\", Author: #{book.author}"
+    end
+  end
 end
