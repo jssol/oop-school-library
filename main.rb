@@ -31,3 +31,11 @@ def create_teacher(app)
   specialization = gets.chomp
   app.add_teacher(specialization, age.to_i, name)
 end
+
+def create_people(app)
+  print 'Do you want to create a student (1) or a teacher (2)? [input the number]: '
+  choice = gets.chomp
+  create_student(app) if choice == '1'
+  create_teacher(app) if choice == '2'
+  puts 'Person created successfully'
+end
