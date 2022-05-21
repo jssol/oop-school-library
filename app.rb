@@ -20,4 +20,9 @@ class App
     student = Student.new(classroom, age, name, parent_permission)
     @people_list.push({ value: student, type: 'Student' })
   end
+
+  def add_teacher(specialization, age, name)
+    teacher = Teacher.new(specialization, age, name)
+    @people_list.push({ value: teacher, type: 'Teacher' })
+  end
 end
