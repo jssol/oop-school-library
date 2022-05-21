@@ -39,3 +39,12 @@ def create_people(app)
   create_teacher(app) if choice == '2'
   puts 'Person created successfully'
 end
+
+def create_book(app)
+  print "\nTitle: "
+  title = gets.chomp
+  print "\nAuthor: "
+  author = gets.chomp
+  app.add_book(title, author)
+  puts 'Book created successfully'
+end
