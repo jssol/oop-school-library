@@ -33,6 +33,11 @@ Run `ruby` and enjoy managing your library.
 - Twitter: [@jsivahera](https://twitter.com/jsivahera)
 - LinkedIn: [jsivahera](https://linkedin.com/in/jsivahera)
 
+👤 **Okoroji Victor aka Vickymarz**
+
+- GitHub: [@githubhandle](https://github.com/vickymarz)
+
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/okoroji-victor-ebube-8791741a0)
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!

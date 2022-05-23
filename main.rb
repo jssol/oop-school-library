@@ -15,16 +15,21 @@ def display_people(app)
   app.display_people
 end
 
+def permission?(permission_value)
+  has_permission = true
+  permission = permission_value.capitalize
+  has_permission = false if permission.include?('N')
+  has_permission
+end
+
 def create_student(app)
   print "\nAge: "
   age = gets.chomp
   print "\nName: "
   name = gets.chomp
   print "\nHas parent permission? [y/N]: "
-  has_permission = true
   permission_value = gets.chomp
-  permission = permission_value.capitalize
-  has_permission = false if permission.include?('N')
+  has_permission = permission?(permission_value)
   print "\nClassroom: "
   classroom = gets.chomp
   app.add_student(classroom, age.to_i, name, has_permission)
@@ -86,7 +91,7 @@ end
 
 def take_action(app)
   decision = gets.chomp
-  puts 'Please choose of the list' unless '1234567'.include?(decision)
+  puts 'Please choose one of the options on the list' unless '1234567'.include?(decision)
   decision == '7' && exit_program
   methods = [
     method(:display_books), method(:display_people), method(:create_people),
