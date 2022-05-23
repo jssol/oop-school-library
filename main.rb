@@ -15,7 +15,7 @@ def display_people(app)
   app.display_people
 end
 
-def has_permission
+def has_permission(app)
   has_permission = true
   permission_value = gets.chomp
   permission = permission_value.capitalize
