@@ -15,12 +15,11 @@ def display_people(app)
   app.display_people
 end
 
-def has_permission(app)
+def has_permission(permission_value)
   has_permission = true
-  permission_value = gets.chomp
   permission = permission_value.capitalize
   has_permission = false if permission.include?('N')
-  print "\nClassroom: "
+  has_permission
 end
 
 def create_student(app)
@@ -29,6 +28,9 @@ def create_student(app)
   print "\nName: "
   name = gets.chomp
   print "\nHas parent permission? [y/N]: "
+  permission_value = gets.chomp
+  has_permission(permission_value)
+  print "\nClassroom: "
   classroom = gets.chomp
   app.add_student(classroom, age.to_i, name, has_permission)
 end
