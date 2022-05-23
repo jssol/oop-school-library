@@ -86,7 +86,7 @@ end
 
 def take_action(app)
   decision = gets.chomp
-  puts 'Please choose of the list' unless '1234567'.include?(decision)
+  puts 'Please choose one of the options on the list' unless '1234567'.include?(decision)
   decision == '7' && exit_program
   methods = [
     method(:display_books), method(:display_people), method(:create_people),
