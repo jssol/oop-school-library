@@ -1,4 +1,5 @@
 require_relative './app'
+require_relative './file_manager'
 
 def display_app
   puts "\nPlease choose an option by enter a number:"
@@ -102,7 +103,10 @@ end
 
 def main
   puts "\nWelcome to School Library App!\n"
-  app = App.new
+  book_list = get_file('./data/books.json')
+  people_list = get_file('./data/people.json')
+  rental_list = get_file('./data/rentals.json')
+  app = App.new(book_list, people_list, rental_list)
   loop do
     display_app
     take_action(app)
