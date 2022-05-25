@@ -6,10 +6,10 @@ require_relative './book'
 class App
   attr_reader :book_list, :people_list
 
-  def initialize
-    @book_list = []
-    @people_list = []
-    @rental_list = []
+  def initialize(book_list, people_list, rental_list)
+    @book_list = book_list
+    @people_list = people_list
+    @rental_list = rental_list
   end
 
   def add_book(title, author)
