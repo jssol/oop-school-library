@@ -1,5 +1,4 @@
 require_relative './app'
-require_relative './file_manager'
 
 def display_app
   puts "\nPlease choose an option by enter a number:"
@@ -78,6 +77,10 @@ def handle_rental(app)
   app.people_list.length.positive? && app.book_list.length.positive? && create_rental(app)
 end
 
+# def recover_files(app)
+#   app.recover_files
+# end
+
 def list_rental_for_person(app)
   print "\nID of person: "
   id = gets.chomp
@@ -85,7 +88,8 @@ def list_rental_for_person(app)
   app.display_rental_for_id(id.to_i)
 end
 
-def exit_program
+def exit_program(app)
+  app.save_files
   puts 'Thank you for using this app!'
   exit
 end
@@ -93,7 +97,7 @@ end
 def take_action(app)
   decision = gets.chomp
   puts 'Please choose one of the options on the list' unless '1234567'.include?(decision)
-  decision == '7' && exit_program
+  decision == '7' && exit_program(app)
   methods = [
     method(:display_books), method(:display_people), method(:create_people),
     method(:create_book), method(:handle_rental), method(:list_rental_for_person)
@@ -103,10 +107,8 @@ end
 
 def main
   puts "\nWelcome to School Library App!\n"
-  book_list = get_file('./data/books.json')
-  people_list = get_file('./data/people.json')
-  rental_list = get_file('./data/rentals.json')
-  app = App.new(book_list, people_list, rental_list)
+  app = App.new
+  # recover_files(app)
   loop do
     display_app
     take_action(app)
