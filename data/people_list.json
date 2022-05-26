@@ -1,0 +1,1 @@
+[{"id":633,"name":"afdsaf","age":14,"parent_permission":true,"rentals":["#<Rental:0x00007f7c9e7179c0>","#<Rental:0x00007f7c9e7165c0>"],"type":"Student","classroom":"4"},{"id":377,"name":"afehr","age":28,"parent_permission":true,"rentals":["#<Rental:0x00007f7c9e715468>"],"type":"Teacher","specialization":"dsfa\t"}]
