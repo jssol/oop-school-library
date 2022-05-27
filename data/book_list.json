@@ -1,1 +1,1 @@
-[{"title":"fsdfs","author":"sfadsf","rentals":["#<Rental:0x00007f7c9e7179c0>"]},{"title":"dfsd","author":"sfsdgwe","rentals":["#<Rental:0x00007f7c9e7165c0>","#<Rental:0x00007f7c9e715468>"]}]
+[{"ref":"#<Book:0x00007f0adf837750>","value":{"title":"mathematics","author":"newton","rentals":["#<Rental:0x00007f0adf834a28>","#<Rental:0x00007f0adf83af40>"]}},{"ref":"#<Book:0x00007f0adf836d28>","value":{"title":"running a hill","author":"runner","rentals":["#<Rental:0x00007f0adf83a220>"]}}]
