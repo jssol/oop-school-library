@@ -1,1 +1,1 @@
-[{"ref":"#<Book:0x00007f0adf837750>","value":{"title":"mathematics","author":"newton","rentals":["#<Rental:0x00007f0adf834a28>","#<Rental:0x00007f0adf83af40>"]}},{"ref":"#<Book:0x00007f0adf836d28>","value":{"title":"running a hill","author":"runner","rentals":["#<Rental:0x00007f0adf83a220>"]}}]
+[{"ref":"#<Book:0x00007f2a40c63498>","value":{"title":"Como hablar espagnol","author":"Enrique Caballo","rentals":[]}}]

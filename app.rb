@@ -20,7 +20,7 @@ class App
       instance_variable_get(var).each do |obj|
         file.push({ ref: obj, value: to_hash(obj) })
       end
-      save_file("./data/#{file_name}.json", file) unless var.empty?
+      save_file("./data/#{file_name}.json", file) if var.size.positive?
     end
   end
 
@@ -30,28 +30,28 @@ class App
     rental_file = get_file('./data/rental_list.json')
     book_to_object(book_file)
     people_to_object(people_file)
-    rental_to_object(rental_file, people_file, book_file)
+    # rental_to_object(rental_file, people_file, book_file)
   end
 
   def add_book(title, author)
-    book = Book.new(title, author)
+    book = Book.new(title.to_s, author.to_s)
     @book_list.push(book)
   end
 
   def add_student(classroom, age, name, parent_permission)
-    student = Student.new(classroom, age, name, parent_permission)
+    student = Student.new(classroom.to_s, age.to_i, name.to_s, parent_permission)
     @people_list.push(student)
   end
 
   def add_teacher(specialization, age, name)
-    teacher = Teacher.new(specialization, age, name)
+    teacher = Teacher.new(specialization.to_s, age.to_i, name.to_s)
     @people_list.push(teacher)
   end
 
   def add_rental(date, book_num, person_num)
     book = @book_list[book_num - 1]
     person = @people_list[person_num - 1]
-    rental = Rental.new(date, book, person)
+    rental = Rental.new(date.to_s, book, person)
     @rental_list.push(rental)
   end
 
@@ -74,7 +74,7 @@ class App
   def choose_person_to_create_rental
     puts 'Select a person from the following list by number (not id)'
     @people_list.each_with_index do |person, i|
-      puts "#{i + 1}) [#{person.type}] Name: #{person.name},"
+      puts "#{i + 1}) [#{person.type}] Name: #{person.name}"
       + " ID: #{person.id}, Age: #{person.age}"
     end
   end
@@ -99,7 +99,9 @@ class App
   def book_to_object(hash)
     hash.each do |book|
       current_book = book['value']
-      add_book(current_book['title'], current_book['author'])
+      title = current_book['title']
+      author = current_book['author']
+      add_book(title, author)
     end
   end
 
@@ -116,35 +118,35 @@ class App
     end
   end
 
-  def rental_to_object(rental_list, people_list, book_list)
-    rental_list.each do |rental|
-      current_rental = rental['value']
-      date = current_rental['date']
-      actual_book_num = ''
-      actual_person_num = ''
-      book_ref = current_rental['book']
-      person_ref = current_rental['person']
-      people_list.each do |person|
-        next unless person_ref == person['ref']
+  # def rental_to_object(rental_list, people_list, book_list)
+  #   rental_list.each do |rental|
+  #     current_rental = rental['value']
+  #     date = current_rental['date']
+  #     actual_book_num = ''
+  #     actual_person_num = ''
+  #     book_ref = current_rental['book']
+  #     person_ref = current_rental['person']
+  #     people_list.each do |person|
+  #       next unless person_ref == person['ref']
 
-        current_person = person['value']
-        current_person_name = current_person['name']
-        current_person_age = current_person['age']
-        @people_list.each_with_index do |p, idx|
-          actual_person_num = idx + 1 if (p.name = current_person_name && p.age == current_person_age)
-        end
-      end
-      book_list.each do |book|
-        next unless book_ref == book['ref']
+  #       current_person = person['value']
+  #       current_person_name = current_person['name']
+  #       current_person_age = current_person['age']
+  #       @people_list.each_with_index do |p, idx|
+  #         actual_person_num = idx + 1 if (p.name = current_person_name && p.age == current_person_age)
+  #       end
+  #     end
+  #     book_list.each do |book|
+  #       next unless book_ref == book['ref']
 
-        current_book = book['value']
-        current_book_title = current_book['title']
-        current_book_author = current_book['author']
-        @book_list.each_with_index do |b, idx|
-          actual_book_num = idx + 1 if (b.author = current_book_author && b.title == current_book_title)
-        end
-      end
-      add_rental(date, actual_book_num, actual_person_num)
-    end
-  end
+  #       current_book = book['value']
+  #       current_book_title = current_book['title']
+  #       current_book_author = current_book['author']
+  #       @book_list.each_with_index do |b, idx|
+  #         actual_book_num = idx + 1 if (b.author = current_book_author && b.title == current_book_title)
+  #       end
+  #     end
+  #     add_rental(date, actual_book_num, actual_person_num)
+  #   end
+  # end
 end
