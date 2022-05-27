@@ -94,27 +94,28 @@ class App
     end
     hash
   end
-   
+
   def book_to_object(hash)
     add_book(hash[:value][:title], hash[:value][:author])
   end
 
   def people_to_object(hash)
     case hash[:value][:type]
-              when 'Student'
-              add_student(hash[:value][:classroom], hash[:value][:age], hash[:value][:name], hash[:value][:parent_permission])
-              when 'Teacher'
-               add_teacher(hash[:value][:specialization], hash[:value][:age],hash[:value][:name])
-              end
+    when 'Student'
+      add_student(hash[:value][:classroom], hash[:value][:age], hash[:value][:name],
+                  hash[:value][:parent_permission])
+    when 'Teacher'
+      add_teacher(hash[:value][:specialization], hash[:value][:age], hash[:value][:name])
+    end
   end
 
-    def rental_to_object(hash)
+  def rental_to_object(hash)
     case hash[:value][:type]
-              when 'Student'
-              add_student(hash[:value][:classroom], hash[:value][:age], hash[:value][:name], hash[:value][:parent_permission])
-              when 'Teacher'
-               add_teacher(hash[:value][:specialization], hash[:value][:age],hash[:value][:name])
-              end
+    when 'Student'
+      add_student(hash[:value][:classroom], hash[:value][:age], hash[:value][:name],
+                  hash[:value][:parent_permission])
+    when 'Teacher'
+      add_teacher(hash[:value][:specialization], hash[:value][:age], hash[:value][:name])
+    end
   end
-end
 end
