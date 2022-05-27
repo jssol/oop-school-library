@@ -20,7 +20,7 @@ class App
       instance_variable_get(var).each do |obj|
         file.push({ ref: obj, value: to_hash(obj) })
       end
-      save_file("./data/#{file_name}.json", file)
+      save_file("./data/#{file_name}.json", file) unless var.empty?
     end
   end
 
