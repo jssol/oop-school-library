@@ -100,6 +100,11 @@ class App
   end
 
   def people_to_object(hash)
-    
+    case hash[:value][:type]
+              when 'Student'
+              add_student(hash[:value][:classroom], hash[:value][:age], hash[:value][:name], hash[:value][:parent_permission])
+              when 'Teacher'
+               add_teacher(hash[:value][:specialization], hash[:value][:age],hash[:value][:name])
+              end
   end
 end
