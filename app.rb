@@ -25,11 +25,8 @@ class App
   end
 
   def recover_files
-    instance_variables.each do |var|
-      file_name = var.to_s.delete('@')
-      file = get_file("./data/#{file_name}.json")
-      p file
-    end
+    book_to_object(get_file('./data/book_list.json'))
+    people_to_object(get_file('./data/people_list.json'))
   end
 
   def add_book(title, author)
@@ -96,26 +93,35 @@ class App
   end
 
   def book_to_object(hash)
-    add_book(hash[:value][:title], hash[:value][:author])
+    hash.each do |book|
+      current_book = book['value']
+      add_book(current_book['title'], current_book['author'])
+    end
   end
 
   def people_to_object(hash)
-    case hash[:value][:type]
-    when 'Student'
-      add_student(hash[:value][:classroom], hash[:value][:age], hash[:value][:name],
-                  hash[:value][:parent_permission])
-    when 'Teacher'
-      add_teacher(hash[:value][:specialization], hash[:value][:age], hash[:value][:name])
+    hash.each do |person|
+      current_person = person['value']
+      case current_person['type']
+      when 'Student'
+        add_student(current_person['classroom'], current_person['age'], current_person['name'],
+                    current_person['parent_permission'])
+      when 'Teacher'
+        add_teacher(current_person['specialization'], current_person['age'], current_person['name'])
+      end
     end
   end
 
-  def rental_to_object(hash)
-    case hash[:value][:type]
-    when 'Student'
-      add_student(hash[:value][:classroom], hash[:value][:age], hash[:value][:name],
-                  hash[:value][:parent_permission])
-    when 'Teacher'
-      add_teacher(hash[:value][:specialization], hash[:value][:age], hash[:value][:name])
-    end
-  end
+  # def rental_to_object(hash)
+  #   hash.each do |rental|
+  #     current_rental = rental['value']
+  #     case hash[value][type]
+  #     when 'Student'
+  #       add_student(hash[value][classroom], hash[value][age], hash[value][name],
+  #                   hash[value][parent_permission])
+  #     when 'Teacher'
+  #       add_teacher(hash[value][specialization], hash[value][age], hash[value][name])
+  #     end
+  #   end
+  # end
 end
