@@ -94,4 +94,12 @@ class App
     end
     hash
   end
+   
+  def book_to_object(hash)
+    add_book(hash[:value][:title], hash[:value][:author])
+  end
+
+  def people_to_object(hash)
+    
+  end
 end

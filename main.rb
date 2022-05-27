@@ -108,7 +108,7 @@ end
 def main
   puts "\nWelcome to School Library App!\n"
   app = App.new
-  # recover_files(app)
+  recover_files(app)
   loop do
     display_app
     take_action(app)
