@@ -24,13 +24,13 @@ class App
     end
   end
 
-  # def recover_files
-  #   instance_variables.each do |var|
-  #     file_name = var.to_s.delete('@')
-  #     file = get_file("./data/#{file_name}.json")
-  #     p file
-  #   end
-  # end
+  def recover_files
+    instance_variables.each do |var|
+      file_name = var.to_s.delete('@')
+      file = get_file("./data/#{file_name}.json")
+      p file
+    end
+  end
 
   def add_book(title, author)
     book = Book.new(title, author)
