@@ -77,9 +77,9 @@ def handle_rental(app)
   app.people_list.length.positive? && app.book_list.length.positive? && create_rental(app)
 end
 
-# def recover_files(app)
-#   app.recover_files
-# end
+def recover_files(app)
+  app.recover_files
+end
 
 def list_rental_for_person(app)
   print "\nID of person: "
