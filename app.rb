@@ -28,8 +28,8 @@ class App
     book_file = get_file('./data/book_list.json')
     people_file = get_file('./data/people_list.json')
     rental_file = get_file('./data/rental_list.json')
-    book_to_object(book_file)
-    people_to_object(people_file)
+    recover_books(book_file)
+    recover_people(people_file)
     recover_rentals(rental_file, book_file, people_file)
   end
 
@@ -96,7 +96,7 @@ class App
     hash
   end
 
-  def book_to_object(hash)
+  def recover_books(hash)
     hash.each do |book|
       current_book = book['value']
       title = current_book['title']
@@ -105,7 +105,7 @@ class App
     end
   end
 
-  def people_to_object(hash)
+  def recover_people(hash)
     hash.each do |person|
       current_person = person['value']
       case current_person['type']
@@ -118,9 +118,33 @@ class App
     end
   end
 
- def recover_rentals(rental_file, book_file, people_file)
-  rental_file.each do |rental|
-    p rental
+  def recover_rentals(rental_file, book_file, people_file)
+    rental_file.each do |rental|
+      current_rental = rental['value']
+      rental_date = current_rental['date']
+      rental_person = current_rental['person']
+      rental_book = current_rental['book']
+      saved_book = book_file.find { |book| book['ref'] == rental_book }
+      saved_person = people_file.find { |person| person['ref'] == rental_person }
+      saved_book_value = saved_book['value']
+      saved_person_value = saved_person['value']
+      saved_book_title = saved_book_value['title']
+      saved_book_author = saved_book_value['author']
+      saved_person_name = saved_person_value['name']
+      saved_person_age = saved_person_value['age']
+      book_index = find_book_index(saved_book_title, saved_book_author)
+      person_index = find_person_index(saved_person_name, saved_person_age)
+      add_rental(rental_date, book_index, person_index)
+    end
   end
- end
+
+  def find_book_index(title, author)
+    book = @book_list.find { |b| b.title == title && b.author == author }
+    @book_list.find_index(book) + 1
+  end
+
+  def find_person_index(name, age)
+    person = @people_list.find { |p| p.name == name && p.age == age }
+    @people_list.find_index(person) + 1
+  end
 end
