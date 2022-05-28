@@ -1,0 +1,1 @@
+[{"ref":"#<Rental:0x00007f0a458b2f58>","value":{"date":"2022-05-15","book":"#<Book:0x00007f0a458b3818>","person":"#<Student:0x00007f0a458b36b0>"}},{"ref":"#<Rental:0x00007f0a458b2c10>","value":{"date":"2022-05-01","book":"#<Book:0x00007f0a458b3818>","person":"#<Teacher:0x00007f0a458b33e0>"}}]
