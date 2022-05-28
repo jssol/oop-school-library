@@ -2,7 +2,7 @@ require './teacher'
 
 describe Teacher do
   before :each do
-    @teacher = Teacher.new('biology', 40, 'Jude ham')
+    @teacher = Teacher.new('biology', 40, 'John')
   end
   context 'receive some arguments' do
     it 'should detect an object ' do
