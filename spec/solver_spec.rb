@@ -14,6 +14,11 @@ describe Solver do
   end
 
   context 'testing the factorial method' do
+    it 'should return "Please use a positive number" when N is inferior to 0' do
+      value = @solver.factorial(-2)
+      expect(value).to match("Please use a positive number")
+    end
+
     it 'should return 1 when N equals 0' do
       value = @solver.factorial(0)
       expect(value).to eql(1)
