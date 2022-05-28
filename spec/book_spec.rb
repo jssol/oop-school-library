@@ -3,7 +3,7 @@ require './student'
 
 describe Book do
   before :each do
-    @book = Book.new('title', 'author' )
+    @book = Book.new('title', 'author')
   end
 
   context '#new' do
@@ -12,13 +12,13 @@ describe Book do
     end
   end
 
- context '#title' do
+  context '#title' do
     it 'should return the right title' do
       expect(@book.title).to eql 'title'
     end
   end
 
- context '#author' do
+  context '#author' do
     it 'should return the required author' do
       expect(@book.author).to eql 'author'
     end

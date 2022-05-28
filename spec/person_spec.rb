@@ -14,7 +14,7 @@ describe Person do
 
   context '#age' do
     it 'should return a correct age' do
-     expect(@person.age).to eql 25
+      expect(@person.age).to eql 25
     end
   end
 
@@ -37,7 +37,7 @@ describe Person do
     it 'should add the rental request to the array' do
       expect(@person.rentals.length).to eql(0)
       @book = Book.new('Ruby on Rails ', 'marc zukerberg')
-      @person.rentals.push( @book)
+      @person.rentals.push(@book)
       expect(@person.rentals.length).to eql(1)
     end
   end
