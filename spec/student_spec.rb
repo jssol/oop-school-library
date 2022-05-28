@@ -2,7 +2,7 @@ require './student'
 
 describe Student do
   before :each do
-    @student = Student.new 15, 'John'
+    @student = Student.new('Basic3', 15, 'John', true)
   end
 
   describe '#new' do
