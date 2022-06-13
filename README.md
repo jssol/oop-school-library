@@ -1,7 +1,7 @@
 # OOP School Library
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-> This app manages an object-orient school library built using Ruby
+> This app manages an object-orient school library built using Ruby.
 
 ## Built With
 
