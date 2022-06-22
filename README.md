@@ -5,8 +5,8 @@
 
 ## Built With
 
-- Ruby, Bash
-- irb, pry, cli
+- Ruby, Bash.
+- irb, pry, cli.
 
 ## Getting Started
 
